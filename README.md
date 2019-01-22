@@ -1,4 +1,4 @@
-#ToDo list application.
+# ToDo list application.
 
 ## The task
 Create ToDo list app. Functions:
