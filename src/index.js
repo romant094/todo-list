@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import AppHeader from './components/app-header';
 import SearchPanel from './components/search-panel';
 import TodoList from './components/todo-list';
+import Itemstatusfliter from './components/item-status-fliter';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
         <div>
             <AppHeader />
             <SearchPanel />
+            <Itemstatusfliter />
             <TodoList todos={todoData} />
         </div >
     );
