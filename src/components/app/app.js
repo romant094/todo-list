@@ -20,7 +20,7 @@ const App = () => {
         },
         {
             label: 'Build awesome App',
-            important: true,
+            important: false,
             id: 3
         },
     ];
