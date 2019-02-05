@@ -13,6 +13,7 @@ const TodoList = ({ todos }) => {
         );
     });
 
+    // TODO delete console.log
     console.log(elements);
 
     return (
