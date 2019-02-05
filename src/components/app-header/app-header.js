@@ -1,11 +1,11 @@
 import React from 'react';
 import './app-header.css';
 
-const AppHeader = () => {
+const AppHeader = ({toDo, done}) => {
     return (
         <div className='header'>
-            <h1>ToDo list</h1>
-            <span> {1} more to do, {3} done</span>
+            <h1>Todo list</h1>
+            <span> {toDo} more to do, {done} done</span>
         </div>
     );
 }
