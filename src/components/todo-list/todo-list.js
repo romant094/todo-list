@@ -19,9 +19,6 @@ const TodoList = ({ todos, onDeleted, onToggleImportant, onToggleDone }) => {
         );
     });
 
-    // TODO delete console.log
-    console.log(elements);
-
     return (
         <ul className='list-group todo-list'>
             {elements}
