@@ -4,3 +4,6 @@
 .add-input{
     margin-right: 10px;
 }
+.add-input-error{
+    border: 1px solid #dc3545;
+}
