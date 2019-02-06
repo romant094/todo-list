@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './item-status-fliter.css';
 
-export default class Itemstatusfliter extends Component {
+export default class ItemStatusFilter extends Component {
     render() {
         return (
             <div className="btn-group">
