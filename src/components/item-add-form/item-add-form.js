@@ -12,7 +12,7 @@ export default class ItemAddForm extends Component {
         })
     };
     onSubmit = (e) => {
-        e.preventDefault();        
+        e.preventDefault();
         console.log(this.state.label.length);
         if (this.validation(this.state.label)) {
             this.props.onItemAdded(this.state.label);
@@ -35,7 +35,12 @@ export default class ItemAddForm extends Component {
     render() {
         return (
             <form className="item-add-form d-flex" onSubmit={this.onSubmit}>
-                <input className={`form-control add-input ${this.state.isValid?'':'add-input-error'}`} type="text" onChange={this.onLabelChange} value={this.state.label} />
+                <input
+                    className={`form-control add-input ${this.state.isValid ? '' : 'add-input-error'}`}
+                    type="text"
+                    onChange={this.onLabelChange}
+                    value={this.state.label}
+                    placeholder='Type here what to do' />
                 <input type='submit' className='btn btn-primary' value='Add item'></input>
             </form>
         )
