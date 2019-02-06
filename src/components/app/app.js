@@ -37,7 +37,6 @@ export default class App extends Component {
         })
     }
     addItem = (text) => {
-        text = 'lorem ipsum';
         const newItem = this.createTodoItem(text)
         this.setState(({ todoData }) => {
             const newArray = [
@@ -85,7 +84,7 @@ export default class App extends Component {
         const todoCount = todoData.length - doneCount;
 
         return (
-            <div>
+            <div className='container'>
                 <AppHeader toDo={todoCount} done={doneCount} />
                 <SearchPanel />
                 <Itemstatusfliter />
@@ -94,7 +93,7 @@ export default class App extends Component {
                     onToggleImportant={this.onToggleImportant}
                     onToggleDone={this.onToggleDone}
                 />
-                <ItemAddForm onItemAdded={() => this.addItem()} />
+                <ItemAddForm onItemAdded={(text) => this.addItem(text)} />
             </div >
         );
     }
