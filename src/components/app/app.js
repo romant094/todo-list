@@ -11,22 +11,18 @@ export default class App extends Component {
     maxId = 100;
     state = {
         todoData: [
-            {
-                label: 'Drink coffee',
-                important: false,
-                id: 1
-            },
-            {
-                label: 'Spend no money on study',
-                important: false,
-                id: 2
-            },
-            {
-                label: 'Build awesome App',
-                important: false,
-                id: 3
-            }
+            this.createTodoItem('Drink coffee'),
+            this.createTodoItem('Spend no money on study'),
+            this.createTodoItem('Build awesome App')
         ]
+    }
+    createTodoItem(label) {
+        return {
+            label,
+            important: false,
+            done: false,
+            id: this.maxId++
+        }
     }
     deleteItem = (id) => {
         this.setState(({ todoData }) => {
@@ -41,12 +37,8 @@ export default class App extends Component {
         })
     }
     addItem = (text) => {
-        const { todoData } = this.state;
-        const newItem = {
-            label: 'lorem ipsum',
-            important: false,
-            id: this.maxId++
-        }
+        text = 'lorem ipsum';
+        const newItem = this.createTodoItem(text)
         this.setState(({ todoData }) => {
             const newArray = [
                 ...todoData,
@@ -57,6 +49,12 @@ export default class App extends Component {
             }
         })
     }
+    onToggleImportant = (id) => {
+        console.log('Toggle important', id);
+    }
+    onToggleDone = (id) => {
+        console.log('Toggle done', id);
+    }
     render() {
         return (
             <div>
@@ -64,7 +62,10 @@ export default class App extends Component {
                 <SearchPanel />
                 <Itemstatusfliter />
                 <TodoList todos={this.state.todoData}
-                    onDeleted={(id) => this.deleteItem(id)} />
+                    onDeleted={(id) => this.deleteItem(id)}
+                    onToggleImportant={this.onToggleImportant}
+                    onToggleDone={this.onToggleDone}
+                />
                 <ItemAddForm onItemAdded={() => this.addItem()} />
             </div >
         );
