@@ -3,9 +3,12 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import Itemstatusfliter from '../item-status-fliter';
+import ItemAddForm from '../item-add-form';
+
 import './app.css';
 
 export default class App extends Component {
+    maxId = 100;
     state = {
         todoData: [
             {
@@ -28,12 +31,29 @@ export default class App extends Component {
     deleteItem = (id) => {
         this.setState(({ todoData }) => {
             const index = todoData.findIndex((el) => el.id === id);
-            const newState = [
-                ...todoData.slice(0, index - 1),
+            const newArray = [
+                ...todoData.slice(0, index),
                 ...todoData.slice(index + 1)
             ]
             return {
-                todoData: newState
+                todoData: newArray
+            }
+        })
+    }
+    addItem = (text) => {
+        const { todoData } = this.state;
+        const newItem = {
+            label: 'lorem ipsum',
+            important: false,
+            id: this.maxId++
+        }
+        this.setState(({ todoData }) => {
+            const newArray = [
+                ...todoData,
+                newItem
+            ]
+            return {
+                todoData: newArray
             }
         })
     }
@@ -45,6 +65,7 @@ export default class App extends Component {
                 <Itemstatusfliter />
                 <TodoList todos={this.state.todoData}
                     onDeleted={(id) => this.deleteItem(id)} />
+                <ItemAddForm onItemAdded={() => this.addItem()} />
             </div >
         );
     }
