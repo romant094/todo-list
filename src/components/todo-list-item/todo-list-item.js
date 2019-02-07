@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faTrash, faExclamation } from '@fortawesome/free-solid-svg-icons'
 
 import './todo-list-item.css';
 
@@ -21,11 +23,10 @@ const TodoListItem = (props) => {
                 </span>
             </span>
             <div className="todo-list-buttons">
-                {/* TODO add icons into buttons */}
                 <button className="btn btn-outline-danger btn-sm"
-                    onClick={onDeleted}>delete</button>
+                    onClick={onDeleted}><Icon icon={faTrash} /></button>
                 <button className="btn btn-outline-success btn-sm"
-                    onClick={onToggleImportant}>!</button>
+                    onClick={onToggleImportant}><Icon icon={faExclamation} /></button>
             </div>
         </>
     )
