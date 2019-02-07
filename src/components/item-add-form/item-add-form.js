@@ -13,7 +13,6 @@ export default class ItemAddForm extends Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.label.length);
         if (this.validation(this.state.label)) {
             this.props.onItemAdded(this.state.label);
             this.setState({
